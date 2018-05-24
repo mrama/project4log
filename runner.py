@@ -1,4 +1,5 @@
 import sys
+import analysis
 
 file = input("Input filename: ")
 try:
@@ -7,8 +8,8 @@ except:
     print("Invalid filename")
     sys.exit()
 
-errors = {"trace": 0, "debug": 0, "info": 0, "warning": 0,
-        "error": 0, "fatal": 0, "off": 0}
+errors = {"TRACE": 0, "DEBUG": 0, "INFO": 0, "WARNING": 0,
+        "ERROR": 0, "FATAL": 0, "OFF": 0}
 emails = {}
 for error in errors:
     emails[error] = set()
@@ -23,11 +24,13 @@ while email != "":
         continue
     error = " "
     while error != "":
-        error = input("Error " + email + " is subscribed to: ").lower()
+        error = input("Error " + email + " is subscribed to: ").upper()
         if error == "":
             continue
         if error in emails:
             emails[error].add(email)
         else:
             print("Invalid error")
-print(emails)
+
+analysis.parse(logs, errors, emails)
+print("dict from parse: ", errors)
