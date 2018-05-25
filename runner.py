@@ -32,5 +32,23 @@ while email != "":
         else:
             print("Invalid error")
 
-analysis.parse(logs, errors, emails)
-print("dict from parse: ", errors)
+num_emails = {}
+for error in emails:
+    for email in emails[error]:
+        num_emails[email] = 0
+timestamps = {}
+analysis.parse(logs, errors, emails, num_emails, timestamps)
+num_errors = analysis.num_errors(errors)
+worst_to_best = analysis.most_to_least(errors)
+frequent_to_unfrequent = analysis.most_to_least(timestamps)
+if num_emails != {}:
+    print("Email Summary:")
+for email in num_emails:
+    print(email + ": " + str(num_emails[email]) + " emails sent")
+print("There are " + str(num_errors) + " unique errors in the log.")
+print("From most to least problematic, the different error categories are:")
+for error in worst_to_best:
+    print(error[0] + ": " + str(error[1]) + " times")
+print("From most to least common, the hours of the day when errors occured are:")
+for hour in frequent_to_unfrequent:
+    print(str(hour[0]) + ": " + str(hour[1]) + " times")
