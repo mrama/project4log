@@ -1,0 +1,13 @@
+runner.py:
+Takes in input from the console (log filename, user emails, user subscriptions) and runs and displays analysis.
+analysis.py
+Parses log file for errors and timestamps.
+
+We chose to use dicts to store all of the data because it made it easy to access error-/email-specific counts and other data.
+
+Rough outline of code execution:
+1. runner takes in input filename and tries to open it
+2. takes in input of email addresses and errors they are subscribed to
+3. runs the parser to update counts of errors, timestamps, send emails (by printing to console)
+4. prints summary of emails sent
+5. prints number of unique errors, error frequencies, error timestamp frequencies

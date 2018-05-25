@@ -86,7 +86,7 @@ def run(data):
         b2.pack(anchor = CENTER)
         b3 = Label(root, bg = "white")
         b3.pack(anchor = CENTER)
-        L1 = Label(root, text="Enter filters you'd like to subscribe to: ", bg = "SteelBlue1")
+        L1 = Label(root, text="Enter error filters you'd like to subscribe to: ", bg = "SteelBlue1")
         L1.pack(anchor = CENTER)
         L2 = Label(root, text="Errors: Trace, Debug, Info, Warning, Error, Fatal, Off", bg = "SteelBlue3")
         L2.pack(anchor = CENTER)
@@ -111,14 +111,20 @@ def run(data):
         I1 = Label(root, text="Hit 'Enter' when you are done.")
         I1.pack(anchor = CENTER)
     if (data.mode == "filterScreen"):
+        b1 = Label(root, bg = "white")
+        b1.pack(anchor = CENTER)
+        b2 = Label(root, bg = "white")
+        b2.pack(anchor = CENTER)
         b3 = Label(root, bg = "white")
         b3.pack(anchor = CENTER)
-        L1 = Label(root, text="Email: ", bg = "SteelBlue1")
+        L1 = Label(root, text="Enter error log text file: ", bg = "SteelBlue1")
         L1.pack(anchor = CENTER)
-        b4 = Label(root, bg = "white")
-        b4.pack(anchor = CENTER)
         E1 = Entry(root, bd = 5)
         E1.pack(anchor = CENTER)
+        b5 = Label(root, bg = "white")
+        b5.pack(anchor = CENTER)
+        I1 = Label(root, text="Hit 'Enter' when you are done.")
+        I1.pack(anchor = CENTER)
 
     # create the root and the canvas
     canvas = Canvas(root, width=data.width, height=data.height)
@@ -136,7 +142,7 @@ class Struct(object):
     def __init__(self, width, height):
         self.width = width
         self.height = height
-        self.mode = "startScreen"
+        self.mode = "filterScreen"
 data = Struct(1200, 1200)
 run(data)
 

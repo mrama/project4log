@@ -17,6 +17,7 @@ for error in errors:
 print("Input email address followed by all errors subscribed to")
 print("Blank email address stops email address input, blank error stops error"
 " input")
+#input all email addresses + error subscriptions
 email = " "
 while email != "":
     email = input("Email address: ").lower()
@@ -37,10 +38,12 @@ for error in emails:
     for email in emails[error]:
         num_emails[email] = 0
 timestamps = {}
+#populate datasets
 analysis.parse(logs, errors, emails, num_emails, timestamps)
 num_errors = analysis.num_errors(errors)
 worst_to_best = analysis.most_to_least(errors)
 frequent_to_unfrequent = analysis.most_to_least(timestamps)
+#output results of analyses
 if num_emails != {}:
     print("Email Summary:")
 for email in num_emails:
