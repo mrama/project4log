@@ -137,6 +137,6 @@ class Struct(object):
         self.width = width
         self.height = height
         self.mode = "startScreen"
-data = Struct(400, 400)
+data = Struct(1200, 1200)
 run(data)
 
